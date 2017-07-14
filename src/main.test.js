@@ -15,8 +15,9 @@ describe("main", () => {
 
       console.log = jest.fn();
 
+      expect(run).not.toThrow();
       expect(console.log).toHaveBeenCalledTimes(1);
-      expect(console.log).toHaveBeenCalledWith(main.defaults, version);
+      expect(console.log).toHaveBeenCalledWith(main.defaults.args, version);
     });
 
     test("should run with specified arguments", () => {
@@ -25,6 +26,7 @@ describe("main", () => {
 
       console.log = jest.fn();
 
+      expect(run).not.toThrow();
       expect(console.log).toHaveBeenCalledTimes(1);
       expect(console.log).toHaveBeenCalledWith(args, version);
     });
