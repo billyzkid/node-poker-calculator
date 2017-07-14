@@ -1,5 +1,4 @@
 import * as main from "./main";
-import { version } from "../package";
 
 describe("main", () => {
   test("should have expected exports", () => {
@@ -17,7 +16,7 @@ describe("main", () => {
 
       expect(run).not.toThrow();
       expect(console.log).toHaveBeenCalledTimes(1);
-      expect(console.log).toHaveBeenCalledWith(main.defaults.args, version);
+      expect(console.log).toHaveBeenCalledWith(main.defaults.args, "As");
     });
 
     test("should run with specified arguments", () => {
@@ -28,7 +27,7 @@ describe("main", () => {
 
       expect(run).not.toThrow();
       expect(console.log).toHaveBeenCalledTimes(1);
-      expect(console.log).toHaveBeenCalledWith(args, version);
+      expect(console.log).toHaveBeenCalledWith(args, "As");
     });
   });
 });
