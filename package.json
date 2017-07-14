@@ -1,0 +1,118 @@
+{
+  "name": "node-poker-calculator",
+  "version": "1.0.0",
+  "description": "Useful poker calculator",
+  "keywords": [
+    "poker",
+    "calculator"
+  ],
+  "bugs": "https://github.com/billyzkid/node-poker-calculator/issues",
+  "repository": "billyzkid/node-poker-calculator",
+  "license": "MIT",
+  "bin": {
+    "node-poker-calculator": "./bin/node-poker-calculator.js"
+  },
+  "main": "./lib/main.js",
+  "files": [
+    "bin",
+    "lib",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
+    "coveralls": "^2.13.1",
+    "eslint": "^3.19.0",
+    "eslint-watch": "^3.1.0",
+    "jest": "^20.0.3",
+    "mute": "^2.0.6",
+    "rimraf": "^2.6.1"
+  },
+  "scripts": {
+    "build": "babel ./src --out-dir ./lib --source-maps --ignore *.test.js",
+    "build:watch": "npm run build -- --watch",
+    "lint": "eslint ./bin ./src",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:watch": "esw --watch ./bin ./src --clear",
+    "prebuild": "rimraf ./lib",
+    "prepare": "npm run lint && npm run test && npm run build",
+    "pretest": "rimraf ./test/coverage",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": true
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "transform-object-rest-spread",
+        {
+          "useBuiltIns": true
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "babel-eslint",
+    "extends": [
+      "eslint:recommended"
+    ],
+    "env": {
+      "es6": true,
+      "node": true,
+      "jest": true
+    },
+    "rules": {
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "no-console": "off",
+      "no-constant-condition": [
+        "error",
+        {
+          "checkLoops": false
+        }
+      ],
+      "semi": [
+        "error",
+        "always"
+      ]
+    }
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./test/setup.js",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/src/**/*.test.js"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/src/**/*.js"
+    ],
+    "coverageDirectory": "./test/coverage",
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text"
+    ]
+  }
+}
