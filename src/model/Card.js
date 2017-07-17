@@ -8,45 +8,14 @@ class Card {
   }
 
   toString() {
-    let s = "";
+    return `${this.rank}${this.suit}`;
+  }
 
-    switch (this.rank) {
-      case Rank.TEN:
-        s += "T";
-        break;
-      case Rank.JACK:
-        s += "J";
-        break;
-      case Rank.QUEEN:
-        s += "Q";
-        break;
-      case Rank.KING:
-        s += "K";
-        break;
-      case Rank.ACE:
-        s += "A";
-        break;
-      default:
-        s += `${this.rank}`;
-        break;
-    }
+  static fromString(value) {
+    const rank = Rank.fromString(value[0]);
+    const suit = Suit.fromString(value[1]);
 
-    switch (this.suit) {
-      case Suit.CLUB:
-        s += "c";
-        break;
-      case Suit.DIAMOND:
-        s += "d";
-        break;
-      case Suit.HEART:
-        s += "h";
-        break;
-      case Suit.SPADE:
-        s += "s";
-        break;
-    }
-
-    return s;
+    return new Card(rank, suit);
   }
 }
 

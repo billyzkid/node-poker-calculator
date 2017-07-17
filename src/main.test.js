@@ -16,7 +16,7 @@ describe("main", () => {
 
       expect(run).not.toThrow();
       expect(console.log).toHaveBeenCalledTimes(1);
-      expect(console.log).toHaveBeenCalledWith(main.defaults.args, "As");
+      expect(console.log).toHaveBeenCalledWith(main.defaults.args, "A♠");
     });
 
     test("should run with specified arguments", () => {
@@ -27,7 +27,7 @@ describe("main", () => {
 
       expect(run).not.toThrow();
       expect(console.log).toHaveBeenCalledTimes(1);
-      expect(console.log).toHaveBeenCalledWith(args, "As");
+      expect(console.log).toHaveBeenCalledWith(args, "A♠");
     });
   });
 });
