@@ -1,31 +1,29 @@
 class Rank {
-  static TWO = new Rank(2, "2", "two", "twos");
-  static THREE = new Rank(3, "3", "three", "threes");
-  static FOUR = new Rank(4, "4", "four", "fours");
-  static FIVE = new Rank(5, "5", "five", "fives");
-  static SIX = new Rank(6, "6", "six", "sixes");
-  static SEVEN = new Rank(7, "7", "seven", "sevens");
-  static EIGHT = new Rank(8, "8", "eight", "eights");
-  static NINE = new Rank(9, "9", "nine", "nines");
-  static TEN = new Rank(10, "T", "ten", "tens");
-  static JACK = new Rank(11, "J", "jack", "jacks");
-  static QUEEN = new Rank(12, "Q", "queen", "queens");
-  static KING = new Rank(13, "K", "king", "kings");
-  static ACE = new Rank(14, "A", "ace", "aces");
+  static TWO = new Rank("2", 2);
+  static THREE = new Rank("3", 3);
+  static FOUR = new Rank("4", 4);
+  static FIVE = new Rank("5", 5);
+  static SIX = new Rank("6", 6);
+  static SEVEN = new Rank("7", 7);
+  static EIGHT = new Rank("8", 8);
+  static NINE = new Rank("9", 9);
+  static TEN = new Rank("T", 10);
+  static JACK = new Rank("J", 11);
+  static QUEEN = new Rank("Q", 12);
+  static KING = new Rank("K", 13);
+  static ACE = new Rank("A", 14);
 
-  constructor(value, id, name, pluralName) {
-    this.value = value;
+  constructor(id, value) {
     this.id = id;
-    this.name = name;
-    this.pluralName = pluralName;
+    this.value = value;
   }
 
   toString() {
     return this.id;
   }
 
-  static fromString(value) {
-    switch (value) {
+  static fromString(s) {
+    switch (s) {
       case "2":
         return Rank.TWO;
       case "3":
@@ -53,7 +51,7 @@ class Rank {
       case "A":
         return Rank.ACE;
       default:
-        throw new Error(`Invalid rank: ${value}`);
+        throw new Error(`Invalid rank: ${s}`);
     }
   }
 }

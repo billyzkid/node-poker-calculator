@@ -11,9 +11,9 @@ class Card {
     return `${this.rank}${this.suit}`;
   }
 
-  static fromString(value) {
-    const rank = Rank.fromString(value[0]);
-    const suit = Suit.fromString(value[1]);
+  static fromString(s) {
+    const rank = Rank.fromString(s[0]);
+    const suit = Suit.fromString(s[1]);
 
     return new Card(rank, suit);
   }

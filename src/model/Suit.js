@@ -1,22 +1,20 @@
 class Suit {
-  static CLUB = new Suit("♣", "c", "club", "clubs");
-  static DIAMOND = new Suit("♦", "d", "diamond", "diamonds");
-  static HEART = new Suit("♥", "h", "heart", "hearts");
-  static SPADE = new Suit("♠", "s", "spade", "spades");
+  static CLUB = new Suit("c", "♣");
+  static DIAMOND = new Suit("d", "♦");
+  static HEART = new Suit("h", "♥");
+  static SPADE = new Suit("s", "♠");
 
-  constructor(symbol, id, name, pluralName) {
-    this.symbol = symbol;
+  constructor(id, symbol) {
     this.id = id;
-    this.name = name;
-    this.pluralName = pluralName;
+    this.symbol = symbol;
   }
 
   toString() {
     return this.symbol;
   }
 
-  static fromString(value) {
-    switch (value) {
+  static fromString(s) {
+    switch (s) {
       case "c":
         return Suit.CLUB;
       case "d":
@@ -26,7 +24,7 @@ class Suit {
       case "s":
         return Suit.SPADE;
       default:
-        throw new Error(`Invalid suit: ${value}`);
+        throw new Error(`Invalid suit: ${s}`);
     }
   }
 }
