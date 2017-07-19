@@ -1,8 +1,15 @@
 class Suit {
-  static CLUB = new Suit("c", "♣");
-  static DIAMOND = new Suit("d", "♦");
-  static HEART = new Suit("h", "♥");
-  static SPADE = new Suit("s", "♠");
+  static club = new Suit("c", "♣");
+  static diamond = new Suit("d", "♦");
+  static heart = new Suit("h", "♥");
+  static spade = new Suit("s", "♠");
+
+  static all = [
+    Suit.club,
+    Suit.diamond,
+    Suit.heart,
+    Suit.spade
+  ];
 
   constructor(id, symbol) {
     this.id = id;
@@ -16,13 +23,13 @@ class Suit {
   static fromString(s) {
     switch (s) {
       case "c":
-        return Suit.CLUB;
+        return Suit.club;
       case "d":
-        return Suit.DIAMOND;
+        return Suit.diamond;
       case "h":
-        return Suit.HEART;
+        return Suit.heart;
       case "s":
-        return Suit.SPADE;
+        return Suit.spade;
       default:
         throw new Error(`Invalid suit: ${s}`);
     }

@@ -12,6 +12,10 @@ class Card {
   }
 
   static fromString(s) {
+    if (s.length !== 2) {
+      throw new Error(`Invalid card: ${s}`);
+    }
+
     const rank = Rank.fromString(s[0]);
     const suit = Suit.fromString(s[1]);
 
