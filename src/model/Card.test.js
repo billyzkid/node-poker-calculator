@@ -69,7 +69,7 @@ describe("Card", () => {
   });
 
   describe("fromString", () => {
-    test("should parse valid strings", () => {
+    test("should parse strings", () => {
       const card1 = Card.fromString("2c");
       expect(card1.rank).toBe(Rank.two);
       expect(card1.suit).toBe(Suit.club);
